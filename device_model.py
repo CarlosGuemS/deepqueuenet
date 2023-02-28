@@ -16,7 +16,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 config=BaseConfig() 
 model=deviceModel.deepQueueNet(config, 
                                target=['time_in_sys'], 
-                               data_preprocessing=False)  #please turn it on when you run the cell for the first time  
+                               data_preprocessing=True)  #please turn it on when you run the cell for the first time  
 model.build_and_training()
 
 # Learning curve

@@ -13,6 +13,6 @@ RUN bash Miniconda3-py37_23.1.0-1-Linux-x86_64.sh -b -p /home/miniconda3
 RUN rm Miniconda3-py37_23.1.0-1-Linux-x86_64.sh && /home/miniconda3/bin/conda init bash
 WORKDIR /home/deepqueuenet
 RUN /home/miniconda3/bin/conda env create -f env.yml
-RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/compat
+ENV LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/cuda-10.0/compat"
 EXPOSE 8888
 CMD ["/bin/bash"]
