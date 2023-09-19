@@ -30,7 +30,7 @@ class RouterConfig:
     sub_rt = 0.005  # subsampling for Eval.
     TIME_STEPS = 42
     BATCH_SIZE = 32 * 8
-    modelname = "5-port router"
+    modelname = "5-port router/FIFO"
     no_of_port = 5
     no_of_buffer = 1
     ser_rate = 2.5 * 1024**2
