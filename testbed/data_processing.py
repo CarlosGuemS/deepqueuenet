@@ -42,7 +42,10 @@ def process_sample(packet_info_matrix, split, sample_id):
             "dst": [jj for _, _, _, jj, _ in merged_sequence],
             "time_in_sys": [delay for _, _, _, _, delay in merged_sequence],
         }
-    ).to_csv(f"../data/5-port router/{split}/5port_sample_{sample_id}.csv", index=False)
+    ).to_csv(
+        f"../data/5-port router/_traces/{split}/5port_sample_{sample_id}.csv",
+        index=False,
+    )
 
 
 # Create folder
@@ -50,8 +53,9 @@ if os.path.exists("../data/5-port router"):
     print("Folder already exists, removing it...")
     shutil.rmtree("../data/5-port router")
 os.mkdir("../data/5-port router")
-os.mkdir("../data/5-port router/_train")
-os.mkdir("../data/5-port router/_test")
+os.mkdir("../data/5-port router/_traces")
+os.mkdir("../data/5-port router/_traces/_train")
+os.mkdir("../data/5-port router/_traces/_test")
 print("Folder created")
 
 ds = DatanetAPI(DS_PATH, shuffle=True)
