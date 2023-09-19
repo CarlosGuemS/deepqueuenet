@@ -3,3 +3,4 @@ __pycache__/
 *.DS_Store
 trained/*
 data/*
+docker_steps.md

@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-class RouterConfig:
+class BaseConfig:
     test_size = 0.2  # train_test_split ratio
     sub_rt = 0.005  # subsampling for Eval.
     TIME_STEPS = 42
