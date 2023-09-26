@@ -101,7 +101,7 @@ class deepQueueNet(trace2Samples):
                     features[k] = tf.sparse_tensor_to_dense(features[k])
         return {'fet': features['fet']}, features['label']
 
-    def tfrecords_input_fn(self, shuffle_buf=1000000):
+    def tfrecords_input_fn(self, shuffle_buf=100000):
         """return a generator to fetch a batch size dataset from the training database"""
         file_list = glob.glob('./data/{}/_tfrecords/*.tfrecords'.format(
             self.config.modelname))
