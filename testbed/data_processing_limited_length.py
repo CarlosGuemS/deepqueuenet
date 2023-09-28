@@ -11,7 +11,7 @@ sys.path.append(DS_PATH)
 from datanetAPI import DatanetAPI
 
 
-def process_sample_total_agg(packet_info_matrix, split, sample_id, max_packets=150000):
+def process_sample_total_agg(packet_info_matrix, split, sample_id, max_packets=100000):
     # Process sequences
     processed_sequences = list()
     for ii, jj in permutations(range(5), 2):
@@ -49,7 +49,7 @@ def process_sample_total_agg(packet_info_matrix, split, sample_id, max_packets=1
 
 
 def process_sample_port_agg(
-    packet_info_matrix, split, sample_id, exit_agg=False, max_packets=150000
+    packet_info_matrix, split, sample_id, exit_agg=False, max_packets=100000
 ):
     # Process sequences
     # if exit_agg is true, use exit port
