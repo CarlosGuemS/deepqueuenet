@@ -118,8 +118,8 @@ ds = DatanetAPI(DS_PATH, shuffle=True)
 ds_length = sum([1 for _ in iter(ds)])
 
 # Split into test and train
-train_length = int(0.05 * ds_length)
-test_length = train_length + int(0.02 * ds_length)
+train_length = int(0.1 * ds_length)
+test_length = train_length + 5
 
 # Process samples
 with ProcessPoolExecutor(15) as executor:

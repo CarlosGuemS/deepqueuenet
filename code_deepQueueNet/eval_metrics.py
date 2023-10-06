@@ -74,6 +74,7 @@ class REPO(trace2Samples):
         ax1.legend(lns, labs, loc=0, fontsize = 12)
         ax2.set_ylabel('MSE: test_exogenesis', fontsize = 14)
         plt.tick_params(labelsize=12)
+        plt.savefig("figs/learning_curve.png")
         plt.show();  
         
         
@@ -94,7 +95,8 @@ class REPO(trace2Samples):
             plt.xlabel('actual delay (ms)')
             plt.ylabel('prediction');
             plt.title('\n\n{}'.format(k))
-        plt.suptitle('regression plot\n\n\n\n\n');
+        plt.suptitle('regression plot\n\n\n\n\n')
+        plt.savefig("figs/regression.png")
         
         
         
@@ -119,6 +121,8 @@ class REPO(trace2Samples):
         plt.title('cdf');
         plt.legend(frameon=False, loc="best")
         plt.suptitle('delay analysis: {}'.format(disp))
+        plt.savefig("figs/cdf_{}.png".format(disp))
+        plt.show()
     
     
     
