@@ -4,3 +4,4 @@ __pycache__/
 trained/*
 data/*
 docker_steps.md
+memory_usage/*
