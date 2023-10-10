@@ -30,7 +30,7 @@ class RouterConfig:
     sub_rt = 0.005  # subsampling for Eval.
     TIME_STEPS = 42
     BATCH_SIZE = 32 * 8
-    modelname = "5-port router/full_device_limited"
+    modelname = "5-port router/entry_port_limited"
     no_of_port = 5
     no_of_buffer = 1
     ser_rate = 2.5 * 1024**2
@@ -57,4 +57,15 @@ class modelConfig:
     test2_sample = "./trained/sample/test2.h5"
     bins = 100
     errorbins = "./trained/error"
+    error_correction = False
+
+class modelConfigTestbed:
+    scaler = "data/5-port router/full_device_limited/_scaler"
+    model = "save/5-port router/full_device_limited"
+    md = 22
+    train_sample = "data/5-port router/full_device_limited/_hdf/train.h5"
+    test1_sample = "data/5-port router/full_device_limited/_hdf/test1.h5"
+    test2_sample = "data/5-port router/full_device_limited/_hdf/test2.h5"
+    bins = 100
+    errorbins = "data/5-port router/full_device_limited/_error"
     error_correction = False

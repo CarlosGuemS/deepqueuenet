@@ -55,8 +55,8 @@ class REPO(trace2Samples):
         mse_txt=pd.read_csv('{}/acc.txt'.format(self.model_config.model), header=None)
         
         """
-        train/test_endogeny: MAP  
-        test_exogenesis: MAP+Poisson
+        train/test_validation: MAP  
+        test_test: MAP+Poisson
         """
         fig = plt.figure(figsize=(12,4))
         ax1 = fig.add_subplot(111)
@@ -64,15 +64,15 @@ class REPO(trace2Samples):
         mse_test1=[float(f.split(':')[-1]) for f in mse_txt[2].values]
         mse_test2=[float(f.split(':')[-1]) for f in mse_txt[3].values]
         lns1=ax1.plot([(1+i)*1000 for i in range(len(mse_train))], mse_train, label='MSE: train', linewidth=2.)
-        lns2=ax1.plot([(1+i)*1000 for i in range(len(mse_test1))], mse_test1, 'C1', label='MSE: test_endogeny', linewidth=2.)
+        lns2=ax1.plot([(1+i)*1000 for i in range(len(mse_test1))], mse_test1, 'C1', label='MSE: test_validation', linewidth=2.)
         ax1.set_xlabel('training step', fontsize = 14)
-        ax1.set_ylabel('MSE: train/test_endogeny', fontsize = 14)
+        ax1.set_ylabel('MSE: train/test_validation', fontsize = 14)
         ax2 = ax1.twinx()   
-        lns3=ax2.plot([(1+i)*1000 for i in range(len(mse_test2))], mse_test2,'C2', label='MSE: test_exogenesis', linewidth=2.)
+        lns3=ax2.plot([(1+i)*1000 for i in range(len(mse_test2))], mse_test2,'C2', label='MSE: test_test', linewidth=2.)
         lns = lns1+lns2+lns3
         labs = [l.get_label() for l in lns]
         ax1.legend(lns, labs, loc=0, fontsize = 12)
-        ax2.set_ylabel('MSE: test_exogenesis', fontsize = 14)
+        ax2.set_ylabel('MSE: test_test', fontsize = 14)
         plt.tick_params(labelsize=12)
         plt.savefig("figs/learning_curve.png")
         plt.show();  
@@ -81,8 +81,8 @@ class REPO(trace2Samples):
         
     def regression_rho(self):
         coll={'train': [131, self.y*1e3, self.y_pred*1e3], 
-              'test: endogeny': [132, self.y1*1e3, self.y1_pred*1e3],
-              'test: exogenesis': [133, self.y2*1e3, self.y2_pred*1e3]}
+              'test: validation': [132, self.y1*1e3, self.y1_pred*1e3],
+              'test: test': [133, self.y2*1e3, self.y2_pred*1e3]}
         
 
         plt.figure(figsize=(20,5))
@@ -141,7 +141,7 @@ class REPO(trace2Samples):
         
         
         self.pdf_cdf(Result*1e3, disp='train') 
-        self.pdf_cdf(Result1*1e3, disp='test_endogeny')   
-        self.pdf_cdf(Result2*1e3, disp='test_exogenesis')           
+        self.pdf_cdf(Result1*1e3, disp='validation')   
+        self.pdf_cdf(Result2*1e3, disp='test')           
 
         
