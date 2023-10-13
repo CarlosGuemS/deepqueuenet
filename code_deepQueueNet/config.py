@@ -33,7 +33,7 @@ class RouterConfig:
     modelname = "5-port router/full_device/50ms"
     no_of_port = 5
     no_of_buffer = 1
-    ser_rate = 2.5 * 1024**2
+    ser_rate = 1 * 1024**3 # Service rate
     sp_wgt = 0.0
     seed = 0
     window = 63  # window size to cal. average service time.
