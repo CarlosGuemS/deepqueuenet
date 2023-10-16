@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import scipy.stats as measures
 from scipy import stats
 import warnings
+import os
 warnings.filterwarnings("ignore") 
  
 
@@ -21,6 +22,8 @@ class REPO(trace2Samples):
     def __init__(self, config, model_config, target):
         super(REPO, self).__init__(config, target)
         self.model_config=model_config
+        self.figure_output = self.model_config.fig_output
+        os.makedirs(self.figure_output, exist_ok=True)
  
         
         
@@ -74,7 +77,7 @@ class REPO(trace2Samples):
         ax1.legend(lns, labs, loc=0, fontsize = 12)
         ax2.set_ylabel('MSE: test_test', fontsize = 14)
         plt.tick_params(labelsize=12)
-        plt.savefig("figs/learning_curve.png")
+        plt.savefig(f"{self.figure_output}/learning_curve.png")
         plt.show();  
         
         
@@ -96,7 +99,7 @@ class REPO(trace2Samples):
             plt.ylabel('prediction');
             plt.title('\n\n{}'.format(k))
         plt.suptitle('regression plot\n\n\n\n\n')
-        plt.savefig("figs/regression.png")
+        plt.savefig(f"{self.figure_output}/regression.png")
         
         
         
@@ -121,7 +124,7 @@ class REPO(trace2Samples):
         plt.title('cdf');
         plt.legend(frameon=False, loc="best")
         plt.suptitle('delay analysis: {}'.format(disp))
-        plt.savefig("figs/cdf_{}.png".format(disp))
+        plt.savefig(f"{self.figure_output}/cdf_{disp}.png")
         plt.show()
     
     

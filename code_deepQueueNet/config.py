@@ -60,12 +60,13 @@ class modelConfig:
     error_correction = False
 
 class modelConfigTestbed:
-    scaler = "data/5-port router/full_device_limited/_scaler"
-    model = "save/5-port router/full_device_limited"
-    md = 22
-    train_sample = "data/5-port router/full_device_limited/_hdf/train.h5"
-    test1_sample = "data/5-port router/full_device_limited/_hdf/test1.h5"
-    test2_sample = "data/5-port router/full_device_limited/_hdf/test2.h5"
+    scaler = "data/5-port router/full_device/50ms/_scaler"
+    model = "save/5-port router/full_device/50ms"
+    md = 79 # Checkpoint number
+    train_sample = "data/5-port router/full_device/50ms/_hdf/train.h5"
+    test1_sample = "data/5-port router/full_device/50ms/_hdf/test1.h5"
+    test2_sample = "data/5-port router/full_device/50ms/_hdf/test2.h5"
     bins = 100
-    errorbins = "data/5-port router/full_device_limited/_error"
+    errorbins = "data/5-port router/full_device/50ms/_error"
     error_correction = False
+    fig_output = "figs/5-port router/full_device/50ms"
