@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
 import scipy.stats as measures
+from scipy.stats import wasserstein_distance
 from scipy import stats
 import warnings
 import os
@@ -145,6 +146,13 @@ class REPO(trace2Samples):
         
         self.pdf_cdf(Result*1e3, disp='train') 
         self.pdf_cdf(Result1*1e3, disp='validation')   
-        self.pdf_cdf(Result2*1e3, disp='test')           
+        self.pdf_cdf(Result2*1e3, disp='test')
 
-        
+
+    def wasserstein_eval(self):
+        b1 = [0] * len(self.y1)
+        with open(f"{self.figure_output}/wasserstein.txt", "w") as ff:
+            w1 = wasserstein_distance(self.y1, self.y1_pred)
+            wb = wasserstein_distance(b1, self.y1)
+            ff.write(f"W1 (deepqueuenet): {w1}\n")
+            ff.write(f"W1/ground truth (deepqueuenet): {w1 / wb}\n")

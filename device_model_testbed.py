@@ -41,15 +41,16 @@ if args.eval:
     ins.learning_curve()
     ins.regression_rho()
     ins.distrib()
+    ins.wasserstein_eval()
 
     # import scipy.stats as measures
-    from scipy.stats import wasserstein_distance
+    # from scipy.stats import wasserstein_distance
 
-    y = ins.y1
-    y_pred = ins.y1_pred
-    b1 = [0] * len(y)
-    print(
-        "\tW1/ground truth (deepqueuenet): {}".format(
-            wasserstein_distance(y, y_pred) / wasserstein_distance(b1, y)
-        )
-    )
+    # y = ins.y1
+    # y_pred = ins.y1_pred
+    # b1 = [0] * len(y)
+    # print(
+    #     "\tW1/ground truth (deepqueuenet): {}".format(
+    #         wasserstein_distance(y, y_pred) / wasserstein_distance(b1, y)
+    #     )
+    # )

@@ -11,7 +11,7 @@ class BaseConfig:
     no_of_port = 4
     no_of_buffer = 1
     ser_rate = 2.5 * 1024**2
-    sp_wgt = 0.0
+    sp_wgt = 0.0 
     seed = 0
     window = 63  # window size to cal. average service time.
     no_process = 15  # multi-processing:no of processes used.
@@ -30,11 +30,11 @@ class RouterConfig:
     sub_rt = 0.005  # subsampling for Eval.
     TIME_STEPS = 42
     BATCH_SIZE = 32 * 8
-    modelname = "5-port router/full_device/50ms"
+    modelname = "5-port router/full_device/100ms"
     no_of_port = 5
     no_of_buffer = 1
-    ser_rate = 1 * 1024**3 # Service rate
-    sp_wgt = 0.0
+    ser_rate = 125 * 1024**2 # Service rate
+    sp_wgt = 0.0 # Value to replaces Nans in the dataset
     seed = 0
     window = 63  # window size to cal. average service time.
     no_process = 15  # multi-processing:no of processes used.
@@ -60,13 +60,13 @@ class modelConfig:
     error_correction = False
 
 class modelConfigTestbed:
-    scaler = "data/5-port router/full_device/50ms/_scaler"
-    model = "save/5-port router/full_device/50ms"
-    md = 79 # Checkpoint number
-    train_sample = "data/5-port router/full_device/50ms/_hdf/train.h5"
-    test1_sample = "data/5-port router/full_device/50ms/_hdf/test1.h5"
-    test2_sample = "data/5-port router/full_device/50ms/_hdf/test2.h5"
+    scaler = "data/5-port router/full_device/100ms/_scaler"
+    model = "save/5-port router/full_device/100ms"
+    md = 123 # Checkpoint number
+    train_sample = "data/5-port router/full_device/100ms/_hdf/train.h5"
+    test1_sample = "data/5-port router/full_device/100ms/_hdf/test1.h5"
+    test2_sample = "data/5-port router/full_device/100ms/_hdf/test2.h5"
     bins = 100
-    errorbins = "data/5-port router/full_device/50ms/_error"
+    errorbins = "data/5-port router/full_device/100ms/_error"
     error_correction = False
-    fig_output = "figs/5-port router/full_device/50ms"
+    fig_output = "figs/5-port router/full_device/100ms"
