@@ -1,0 +1,2 @@
+W1 (deepqueuenet): 0.00027056719859534567
+W1/ground truth (deepqueuenet): 0.8438278113496671

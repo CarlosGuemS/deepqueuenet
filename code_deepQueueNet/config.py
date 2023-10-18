@@ -62,7 +62,7 @@ class modelConfig:
 class modelConfigTestbed:
     scaler = "data/5-port router/full_device/100ms/_scaler"
     model = "save/5-port router/full_device/100ms"
-    md = 123 # Checkpoint number
+    md = 23 # Checkpoint number
     train_sample = "data/5-port router/full_device/100ms/_hdf/train.h5"
     test1_sample = "data/5-port router/full_device/100ms/_hdf/test1.h5"
     test2_sample = "data/5-port router/full_device/100ms/_hdf/test2.h5"
